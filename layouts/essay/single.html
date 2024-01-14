@@ -1,0 +1,20 @@
+{{ define "title" }}{{ .Title | plainify }} · {{ .Params.author }}{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow"><a href="/">ntns.in</a> &nbsp;·&nbsp; <a href="{{ .Parent.RelPermalink }}">← Session {{ .Parent.Params.meeting }}</a></div>
+    <h1>{{ .Title | safeHTML }}</h1>
+    <p class="subtitle">{{ .Params.author }}</p>
+  </header>
+
+  <div class="essay-body">
+    {{ .Content }}
+  </div>
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span>{{ .Params.author }}</span>
+    <span><a href="{{ .Parent.RelPermalink }}">← Session {{ .Parent.Params.meeting }}</a> &nbsp;·&nbsp; <a href="/">ntns.in</a></span>
+  </footer>
+{{ end }}

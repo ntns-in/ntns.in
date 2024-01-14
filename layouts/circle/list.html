@@ -1,0 +1,30 @@
+{{ define "title" }}{{ .Title | safeHTML }} · {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow"><a href="/">← ntns.in</a> &nbsp;·&nbsp; Reading Circle</div>
+    <h1 style="color: var(--red);">The Reading Circle</h1>
+    <p class="subtitle">To politicize the apolitical engineer</p>
+  </header>
+
+  {{ with .Content }}<div>{{ . }}</div>{{ end }}
+
+  {{ if .Pages }}
+  <ul class="meeting-list">
+    {{ range .Pages }}
+    <li>
+      <span class="meeting-num">Meeting {{ .Params.meeting }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title | safeHTML }}</a>
+      <div class="meeting-date">{{ .Params.sessionDate | time.Format "2 January 2006" }}</div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span><a href="/">ntns.in</a></span>
+    <span>Reading Circle</span>
+  </footer>
+{{ end }}

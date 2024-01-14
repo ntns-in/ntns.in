@@ -1,0 +1,24 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow"><a href="/">ntns.in</a> &nbsp;·&nbsp; {{ .Params.eyebrow }}</div>
+    <h1>{{ .Params.heading | safeHTML }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    {{ partial "meta-row.html" .Params.meta }}
+    {{ with .Params.minutesLink }}
+    <div class="minutes-link">
+      <a href="{{ . }}">Read the Minutes from the First Meeting →</a>
+    </div>
+    {{ end }}
+  </header>
+
+  {{ .Content }}
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span>{{ .Params.footerLeft }}</span>
+    <span><a href="/">ntns.in</a></span>
+  </footer>
+{{ end }}

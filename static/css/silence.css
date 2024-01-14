@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+:root {
+  --ink: #0d0c0b;
+  --paper: #f4f0e8;
+  --red: #b91c1c;
+  --muted: #5a5047;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.page {
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+/* ── HEADER ── */
+header {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.eyebrow a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.eyebrow a:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+h1 {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  font-weight: normal;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+h1 em { color: var(--red); }
+
+.subtitle {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.meta {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.meta .red { color: var(--red); }
+
+/* ── SECTIONS ── */
+section { margin-bottom: 3rem; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+
+h2 {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+p { margin-bottom: 1em; text-align: justify; hyphens: auto; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+em { color: var(--muted); }
+
+/* ── CTA ── */
+.cta {
+  border-top: 3px double var(--ink);
+  border-bottom: 3px double var(--ink);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.cta-details {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.cta-note { font-style: italic; font-size: 0.95rem; color: var(--muted); }
+
+.cta-text {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-style: italic;
+  color: var(--muted);
+  max-width: 52ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── MINUTES LINK ── */
+.minutes-link {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.minutes-link a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 0.15rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.minutes-link a:hover {
+  color: var(--red);
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--muted);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+footer a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+footer a:hover { border-color: var(--red); }
+
+/* ── ITEM LIST — shared pattern for meetings, sessions, texts ── */
+/* Used by: .meeting-list (mom/circle indexes), .text-list (session page) */
+.meeting-list,
+.text-list {
+  list-style: none;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meeting-list li,
+.text-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meeting-num,
+.text-author {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+
+.meeting-list a,
+.text-list a {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.15;
+  border-bottom: 1px solid var(--muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.meeting-list a::after,
+.text-list a::after {
+  content: ' →';
+  font-style: normal;
+  color: var(--red);
+}
+
+.meeting-list a:hover,
+.text-list a:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.meeting-date {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+/* ── TEXTS LABEL (session page) ── */
+.texts-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  margin-top: 3rem;
+  display: block;
+}
+
+/* ── ESSAY BODY ── */
+.essay-body ol {
+  margin: 0 0 1em 1.5em;
+}
+
+.essay-body ol li {
+  margin-bottom: 0.4em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.essay-body hr {
+  border: none;
+  border-top: 1px solid var(--muted);
+  margin: 2rem 0;
+}
+
+.session-intro {
+  margin-top: 3rem;
+}
+
+.session-intro p {
+  margin-bottom: 1em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ── LANDING PAGE ── */
+.landing-links {
+  list-style: none;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.landing-links > li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.landing-links .link-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+
+.landing-links > li > a {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.15;
+  transition: color 0.2s;
+}
+
+.landing-links > li > a:hover {
+  color: var(--red);
+}
+
+.landing-links .link-desc {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.landing-sub {
+  list-style: none;
+  margin-top: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.1em;
+}
+
+.landing-sub a {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.landing-sub a::before {
+  content: '→ ';
+  color: var(--red);
+  font-style: normal;
+}
+
+.landing-sub a:hover {
+  color: var(--ink);
+}

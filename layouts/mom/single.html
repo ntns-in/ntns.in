@@ -1,0 +1,19 @@
+{{ define "title" }}{{ .Title }} · Who Does Your Silence Protect?{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow"><a href="/">ntns.in</a> &nbsp;·&nbsp; <a href="/silence/mom/">← Minutes of Meeting</a> &nbsp;·&nbsp; {{ .Date.Format "2 January 2006" }}</div>
+    <h1>{{ .Params.heading | safeHTML }}</h1>
+    <p class="subtitle">Who Does Your Silence Protect? — Session {{ .Params.meeting }}</p>
+    {{ partial "meta-row.html" .Params.meta }}
+  </header>
+
+  {{ .Content }}
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span>IIIT Hyderabad · {{ .Date.Format "2 January 2006" }}</span>
+    <span><a href="/silence/">Manifesto</a> &nbsp;·&nbsp; <a href="/">ntns.in</a></span>
+  </footer>
+{{ end }}

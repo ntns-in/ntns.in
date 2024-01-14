@@ -1,0 +1,8 @@
+baseurl = "https://ntns.in"
+title   = "No Tyrants, No Silence"
+languageCode = "en-us"
+
+disableKinds = ["taxonomy", "term"]
+
+[markup.goldmark.renderer]
+  unsafe = true

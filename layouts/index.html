@@ -1,0 +1,45 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow">IIIT Hyderabad</div>
+    <h1>No <em>Tyrants</em>, No Silence</h1>
+    <p class="subtitle">We refuse to produce the technically excellent, politically inert professional the present arrangement depends on.</p>
+  </header>
+
+  <ul class="landing-links">
+    <li>
+      <span class="link-label">Manifesto</span>
+      <a href="/silence/">Who Does Your <em>Silence</em> Protect?</a>
+      <div class="link-desc">On the Production of the Apolitical Engineer</div>
+      {{ $mom := site.GetPage "/silence/mom" }}
+      {{ if $mom }}{{ with $mom.Pages }}
+      <ul class="landing-sub">
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}{{ end }}
+    </li>
+    <li>
+      <span class="link-label">Reading Circle</span>
+      <a href="/circle/">The Reading Circle</a>
+      <div class="link-desc">To politicize the apolitical engineer</div>
+      {{ $circle := site.GetPage "/circle" }}
+      {{ if $circle }}{{ with $circle.Sections }}
+      <ul class="landing-sub">
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title | safeHTML }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}{{ end }}
+    </li>
+  </ul>
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span>IIIT Hyderabad</span>
+    <span>No Tyrants, No Silence</span>
+  </footer>
+{{ end }}

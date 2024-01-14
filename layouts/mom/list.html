@@ -1,0 +1,28 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "main" }}
+  <header>
+    <div class="eyebrow"><a href="/">ntns.in</a> &nbsp;·&nbsp; <a href="/silence/">← Manifesto</a> &nbsp;·&nbsp; {{ .Title }}</div>
+    <h1>{{ .Params.heading | safeHTML }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ with .Content }}<div>{{ . }}</div>{{ end }}
+
+  <ul class="meeting-list">
+    {{ range .Pages }}
+    <li>
+      <span class="meeting-num">Meeting {{ .Params.meeting }}</span>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <div class="meeting-date">{{ .Date.Format "2 January 2006" }}</div>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ define "footer" }}
+  <footer>
+    <span><a href="/">ntns.in</a></span>
+    <span><a href="/silence/">Who Does Your Silence Protect?</a></span>
+  </footer>
+{{ end }}
